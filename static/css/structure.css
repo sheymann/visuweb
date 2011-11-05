@@ -1,0 +1,53 @@
+body{width:100%;padding:0px 0px 60px;-webkit-text-size-adjust:100%;}
+body #header{width:100%;height:73px;}
+body #header #headercontent{width:896px;margin-left:auto;margin-right:auto;}
+body #header #headercontent #logo{margin:30px 0px 0px 0px;}
+body #header #headercontent #nav{float:right;margin:15px 0px 0px 0px;padding:0px 0 0 0px;}
+body #header #headercontent #nav li{float:left;margin:18px 0 0 18px;}
+body #header #headercontent #nav li#connection{margin:22px 0 0 18px;width:120px;}
+body #part1{width:100%;}
+body #part1 #part1content{width:896px;margin-left:auto;margin-right:auto;padding-top:40px;padding-bottom:1px;}
+body #part1 #part1content h1{margin-top:5px;margin-bottom:40px;}
+body #part1 #part1content .step{display:inline-block;width:285.3333333333333px;margin-bottom:70px;}
+body #part1 #part1content #step1 p{padding-left:30px;}
+body #part1 #part1content #step2 p{padding-left:25px;}
+body #part1 #part1content #step3 p{padding-left:40px;}
+body #part1 #part1content .step-image{width:285.3333333333333px;height:149px;background-repeat:no-repeat;margin:0 0 20px 0;}
+body #part1 #part1content .s1{background-image:url(/images/steps/step1.png);background-position:38.16666666666666px 34.5px;}
+body #part1 #part1content .s2{background-image:url(/images/steps/step2.png);background-position:45.16666666666666px 22px;}
+body #part1 #part1content .s3{background-image:url(/images/steps/step3.png);background-position:53.66666666666666px -5px;}
+body #part2{padding:30px 0 40px 0;}
+body #part2 #brands{background-image:url(/images/brands.png);width:684px;height:63px;margin:0 auto 25px;}
+body #part2 p{margin:0;}
+body #part3 #part3content{width:896px;margin-left:auto;margin-right:auto;padding:20px 0 40px;}
+body #part3 #part3content #social{float:right;width:100px;text-align:left;}
+body #part3 #part3content #invite-form-container{width:626px;height:31px;margin:25px auto 0;}
+body #part3 #part3content #invite-form-container #invite-form{width:485px;margin-right:auto;margin-left:auto;}
+body #part3 #part3content #invite-form-container #invite-form input[type="text"]{width:300px;height:19px;padding:5px 8px;vertical-align:middle;}
+body #part3 #part3content #invite-form-container #invite-form input[type="submit"]{width:125px;height:31px;vertical-align:middle;}
+body #part4{padding:0px 0 60px 0;}
+body #part4 #part4content{width:896px;margin-left:auto;margin-right:auto;}
+body #part4 #part4content h2{padding:75px 0px 12px 0px;margin:0px 0px 17px 0px;}
+body #part4 #part4content .feature{display:inline-block;background-repeat:no-repeat;vertical-align:top;width:252px;margin:0px 65px 0px 0px;padding:150px 0 0 0;}
+body #part4 #part4content .feature h3{margin-bottom:8px;}
+body #part4 #part4content .last{margin-right:0px;}
+body #part4 #part4content #feature1{background-image:url(/images/features/book.png);}
+body #part4 #part4content #feature2{background-image:url(/images/features/organized.png);}
+body #part4 #part4content #feature3{background-image:url(/images/features/secure.png);}
+body #part4 #part4content #feature4{background-image:url(/images/features/prices.png);}
+body #part4 #part4content #feature5{background-image:url(/images/features/smiles.png);}
+body #part4 #part4content #feature6{background-image:url(/images/features/cards.png);}
+body #part4 #part4content #feature7{background-image:url(/images/features/options.png);}
+body #part4 #part4content #feature8{background-image:url(/images/features/smilescard.png);}
+body #part4 #part4content #feature9{background-image:url(/images/features/dematerialized.png);}
+body #part4 #part4content #faq{padding:10px 0 0 0;}
+body #part4 #part4content #faq p{margin:10px 0 0;}
+body #part4 #part4content #faq p.question{margin:16px 0 0 0;}
+#main .content{width:716.8000000000001px;margin:0 auto;padding:60px 0;}
+#main .content h1{width:537.6px;margin:0 auto 60px;}
+#main .content h2{margin:30px 0 20px;}
+#main .content h3{margin:30px 0 20px;}
+#main .content p{margin:10px 0 15px;}
+#footer{padding:70px 0 40px;margin:0 auto;height:60px;width:896px;}
+#footer ul{padding:0 0 10px 0;}
+#footer ul li{display:inline;margin:0 20px 0 0;}

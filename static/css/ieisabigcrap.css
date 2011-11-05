@@ -1,0 +1,15 @@
+#part1content .step {
+  float:left;
+}
+
+#part4content .feature {
+  float:left;
+}
+
+#nav {
+  float: none;
+}
+
+#nav li {
+  float: none;
+}

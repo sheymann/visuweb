@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"> 
+<head> 
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" /> 
+	<meta name="author" content="Sébastien Heymann" /> 
+ 
+	<title>SiGMa test</title> 
+</head> 
+<body id="main"> 
+	<script type="text/javascript" src="sigma.js"></script>
+	<!-- Button to generate random graphs -->
+	<button id="random" type="button" onclick="feedSiGMa();">Click to generate a random graph</button>
+	<!-- SiGMa -->
+	<div id="SiGMa-container" style="height:400px;width:600px;">
+	  <object id="SiGMa-DOM" style="width:100%;height:98%;border:1px #866 solid;" type="application/x-shockwave-flash">
+		<param name="movie" value="sigma.swf?configPath=config.json"/>
+		<param name="allowScriptAccess" value="always"/>
+		<embed src="sigma.swf?configPath=config.json" name="SiGMa-DOM" allowScriptAccess="always"></embed>
+	  </object>
+	</div>
+</body>

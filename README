@@ -1,0 +1,8 @@
+INSTALL
+-------
+
+Duplicate config.void.py and rename it to config.py.
+Edit config.py to fill in the configuration values.
+You must get a reCaptcha key on http://www.google.com/recaptcha
+
+
