@@ -14,19 +14,26 @@ import tornado.web
 import urllib2
 from time import sleep
 
+from exceptions import *
+from notification_map import NotificationMultimap
 from logger import Logger
-from cache import GraphCache
-from queue import Queue
-from config import API, SERVICES, GENERAL
-
-queue = Queue()
+from cache import Cache
+from job_queue import JobQueue
+from lookup import Lookup
+from config import CONFIG
 
 settings = {
-    "static_path": GENERAL.static_dir,
+    "static_path": CONFIG.static_dir,
     "twitter_consumer_key": "Q636WeJdWBEXSfMTTZbw",
     "twitter_consumer_secret": "l3bVkk2H1e0KFlImQLQkuJRn9uICkzpNE36TJH59yjY"
 }
 
+queue = JobQueue()
+
+
+class StatusHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.write("ok")
 
 # App: https://dev.twitter.com/apps/1357631/settings
 class TwitterAuthHandler(tornado.web.RequestHandler, tornado.auth.TwitterMixin):
@@ -48,8 +55,11 @@ class TwitterAuthHandler(tornado.web.RequestHandler, tornado.auth.TwitterMixin):
 
 
 class PushNodeHandler(tornado.web.RequestHandler):
-    __logger__ = Logger("PushNodeHandler")
+    def initialize(self):
+        self.__logger__ = Logger(self.__class__.__name__)
+    
     def get(self, node):
+        #TODO securiser l'accès via un token?
         #try:
             # ex node: "http://twitter.com/mentatseb"
             # Check if the username exists
@@ -58,8 +68,8 @@ class PushNodeHandler(tornado.web.RequestHandler):
             #connexion.read()
         while queue.isLocked():
             sleep(0.1)
-        queue.product(node)
-        self.write("ok")  #Your request for the map " + node + " has been taken into account. Please wait until it's done :)
+        queue.put(node)
+        self.write("ok")
         #except IOError, e:
             #self.__logger__.error(str(e)+" on "+node)
             #if hasattr(e, 'reason'):
@@ -72,13 +82,15 @@ class PushNodeHandler(tornado.web.RequestHandler):
 
 class FetchNodeHandler(tornado.web.RequestHandler):
     '''Fetch a node and its inbound links from Google SocialGraph API'''
+    __cache__ = Cache()
     @tornado.web.asynchronous
     def get(self, node):
         self.__node__ = node
+        #TODO securiser l'accès via un token?
         # If the node has been checked recently then pump in the cache,
         # otherwise fetch fresh data on the Web.
-        if GraphCache().isCached(node):
-            json = GraphCache().load(node)
+        if self.__cache__.isCached(node):
+            json = self.__cache__.load(node)
             self.on_response_cache(json)
         else:
             http = tornado.httpclient.AsyncHTTPClient()
@@ -88,7 +100,7 @@ class FetchNodeHandler(tornado.web.RequestHandler):
         if response.error:
             raise tornado.web.HTTPError(500)
         self.write(response.body)
-        GraphCache().cache(self.__node__, response.body)
+        self.__cache__.cache(self.__node__, response.body)
         self.finish()
         
     def on_response_cache(self, response):
@@ -96,15 +108,24 @@ class FetchNodeHandler(tornado.web.RequestHandler):
         self.finish()
 
 
+class PushNotificationHandler(tornado.web.RequestHandler):
+    def get(self, map_id, user):
+        nm = NotificationMultimap()
+        nm[map_id] = user
+        self.write("ok")
+
+
 application = tornado.web.Application([
-    (r""+SERVICES.push_node+"([A-Za-z0-9:/.,=?_%\-]+)", PushNodeHandler),
-    (r""+SERVICES.fetch_node+"([A-Za-z0-9:/.,=?_%\-]+)", FetchNodeHandler),
-    (r"/tweet/([A-Za-z0-9]+)", TwitterAuthHandler),
+    (r""+Lookup().PATTERN.status, StatusHandler),
+    (r""+Lookup().PATTERN.push_node, PushNodeHandler),
+    (r""+Lookup().PATTERN.fetch_node, FetchNodeHandler),
+    (r""+Lookup().PATTERN.push_notification, PushNotificationHandler),
+    (r"/api/tweet/([A-Za-z0-9]+)", TwitterAuthHandler), #TODO
     (r"/", tornado.web.StaticFileHandler,
      dict(path=settings['static_path']))
 ], **settings)
 
 if __name__ == "__main__":
-    application.listen(API.port)
+    application.listen(CONFIG.API.port)
     tornado.ioloop.IOLoop.instance().start()
 

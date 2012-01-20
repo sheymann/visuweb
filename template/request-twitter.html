@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"> 
+<head> 
+    <meta name="title" content="Visuweb: {{ username }}'s twitter network" /> 
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" /> 
+	<meta name="author" content="Sébastien Heymann" />
+    <title>Visuweb: {{ username }}'s twitter network</title>
+    <link href="{{ static_url('css/less.css') }}" media="all" rel="stylesheet" type="text/css" />
+    <link href="{{ static_url('css/structure.css') }}" media="all" rel="stylesheet" type="text/css" />
+    <link href="{{ static_url('css/styles.css') }}" media="all" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 8]>
+    <link href="{{ static_url('css/ieisabigcrap.css') }}" media="all" rel="stylesheet" type="text/css" />
+    <![endif]--> 
+	<script src="{{ static_url('js/less-1.0.41.min.js') }}" type="text/javascript"></script>
+	<script type="text/javascript">
+        var RecaptchaOptions = {
+            theme : 'clean'
+        };
+     </script>
+</head>
+<body id="main">
+	<!--div id="header"> 
+	  <div id="headercontent"> 
+	   
+		<ul id="nav"> 
+		  <li><a href="/">Home</a></li>
+		  <li ><a href="/contact/">Contact</a></li>
+		</ul> 
+		 <a href="/"><img alt="Capitaine Train" id="logo" src="/images/capitaine_train_white.png?1308669192" /></a> 
+	  </div> 
+	</div--> 
+    {% if error is not None %}
+        <div id="part1"> 
+		    <div id="part1content"> 
+			    {% if error == "404" %}
+			        <h1>Error 404</h1>
+			        <p>The username "{{ username }}" does not exist.</p>
+			    {% else %}
+			        <h1>Error</h1>
+			        <p>{{ error }}</p>
+			    {% end %}
+		    </div>
+        </div>
+    <div id="part2"> 
+    </div>
+	{% else %}
+        <div id="part1"> 
+		    <div id="part1content"> 
+			    <h1>in progress...</h1>
+			    <p>Please wait while the data is retreived from Twitter and the graph is built. Refresh this page in a couple of minutes, or type your twitter username below. We'll send you a message when it's done!</p>
+		    </div>
+        </div>
+        <div id="part2"> 
+			<h4>Get notified on Twitter</h4>
+			<form action="/add-notification/" method="post">
+			{% raw xsrf_form_html() %}
+			<label for="notified_username">Your Twitter username:</label> <input type="text" name="notified_username" />
+			<input type="hidden" name="map_id" value="{{ username }}"/>
+			<!--div style="margin:1em auto;width:500px">{% raw captcha %}</div-->
+			<input type="submit" value="Submit" />
+			</form>
+        </div>
+	{% end %}
+    <!--div id=part3>
+    </div-->
+    <div id="footer"> 
+	  <div id="footercontent"> 
+		<ul> 
+		  <li><a href="/">Home</a></li> 
+		  <li><a href="/about/">About</a></li> 
+		  <li><a href="/order/pdf/" rel="nofollow">Buy PDF</a></li>
+		  <li><a href="/contact/">Contact</a></li> 
+		  <li><a href="/terms/">Terms</a></li> 
+		  <li><a href="https://twitter.com/visu_web">@visu_web</a></li> 
+		</ul> 
+		<p>© 2011 Visuweb. All rights reserved.</p> 
+	  </div> 
+	</div> 
+</body>
+</html>

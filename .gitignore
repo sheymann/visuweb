@@ -32,4 +32,5 @@ config.py
 cache/*
 queue/*
 static/*.gexf
+nohup.out
 

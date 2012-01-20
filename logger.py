@@ -16,17 +16,14 @@ import logging
 class Logger:
 	def __init__(self, modulename = ""):
 		# create logger with 'spam_application'
-		self.logger = logging.getLogger('tweetmap/'+modulename)
+		self.logger = logging.getLogger('visuweb/'+modulename)
 		self.logger.setLevel(logging.DEBUG)
 		# create file handler which logs even debug messages
-		fhd = logging.FileHandler('tweetmap-debug.log')
+		fhd = logging.FileHandler('visuweb-debug.log')
 		fhd.setLevel(logging.DEBUG)
 		# create file handler which logs warning messages
-		fhw = logging.FileHandler('tweetmap-warning.log')
+		fhw = logging.FileHandler('visuweb-warning.log')
 		fhw.setLevel(logging.WARNING)
-		# create file handler which logs info messages
-		fhi = logging.FileHandler('tweetmap-info.log')
-		fhi.setLevel(logging.INFO)
 		# create console handler with a higher log level
 		ch = logging.StreamHandler()
 		ch.setLevel(logging.ERROR)
@@ -34,12 +31,10 @@ class Logger:
 		formatter = logging.Formatter('%(asctime)s %(name)-22s %(levelname)-10s %(message)s')
 		fhd.setFormatter(formatter)
 		fhw.setFormatter(formatter)
-		fhi.setFormatter(formatter)
 		ch.setFormatter(formatter)
 		# add the handlers to the logger
 		self.logger.addHandler(fhd)
 		self.logger.addHandler(fhw)
-		self.logger.addHandler(fhi)
 		self.logger.addHandler(ch)
 	
 	def get(self):

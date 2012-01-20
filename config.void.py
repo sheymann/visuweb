@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 """
-Référence la liste des services.
+Empty configuration file.
 
 Requires Python 2.7
 """
@@ -12,29 +12,21 @@ Requires Python 2.7
 
 import os
 
-class WEB:
-	pass
 
-class API:
-	pass
+class CONFIG:
+    class WEB:
+	    pass
+    class API:
+	    pass
 
-class SERVICES:
-	pass
+CONFIG.static_dir = os.path.join(os.path.dirname(__file__), "static")
+CONFIG.cookie_secret = ""   # generate a cookie using cookie_generator.py
+CONFIG.cache_time = 7  	    # cache retention in number of days
+CONFIG.parallel_jobs = 5  	# number of parallel queries to social networks
 
-class GENERAL:
-	pass
+CONFIG.API.port = "8888"    # port used by this server to serve the api
+CONFIG.WEB.port = "8080"    # port used by this server to serve the frontend
 
-WEB.port = "8080"
-WEB.captcha_public_key = ""
-WEB.captcha_private_key = ""
-
-API.servers = ["localhost:8888"]  	# list of available servers to distribute the data fetching
-API.port = "8888"  					# port of this server instance
-API.cache_time = 7  				# days
-API.parallel_jobs = 5  				# number of parallel queries to social networks
-
-SERVICES.push_node = "/push/q="  	# ex: http://localhost:8888/push/q=http://twitter.com/mentatseb
-SERVICES.fetch_node = "/fetch/q="  	# ex: http://localhost:8888/fetch/q=http://twitter.com/mentatseb
-
-GENERAL.static_dir = os.path.join(os.path.dirname(__file__), "static")
+CONFIG.WEB.captcha_public_key = ""
+CONFIG.WEB.captcha_private_key = ""
 

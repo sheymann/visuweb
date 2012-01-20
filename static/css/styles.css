@@ -32,11 +32,11 @@ body{background-color:#efefe9;background-image:url(../images/bg.png);background-
 #part3 #invite-form input[type="submit"]{font-size:15px;-webkit-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;border-radius:3px;font-weight:bold;color:#fff;border:1px solid #7d9577;background-color:#419c2e;padding:6px 15px;font-family:Helvetica,Arial,sans-serif;background-image:linear-gradient(top, #32c052, #44994e);background-image:-webkit-gradient(linear, 0% 0%, 0% 93%, from(#32c052), to(#44994e));background-image:-moz-linear-gradient(0% 93% 90deg, #44994e, #32c052);-moz-box-shadow:0px 1px 0px #8edb94 inset,0px -1px 0px #316d38 inset,transparent 0 0 0,transparent 0 0 0,transparent 0 0 0;-webkit-box-shadow:0px 1px 0px #8edb94 inset,0px -1px 0px #316d38 inset,transparent 0 0 0,transparent 0 0 0,transparent 0 0 0;box-shadow:0px 1px 0px #8edb94 inset;box-shadow:0px 1px 0px #8edb94 inset,0px -1px 0px #316d38 inset,transparent 0 0 0,transparent 0 0 0,transparent 0 0 0;}
 #part3 #invite-form input[type="submit"]:hover{cursor:pointer;}
 #part3 #invite-form input[type="submit"]:active{background-image:linear-gradient(top, #44994e, #44994e);background-image:-webkit-gradient(linear, 0% 0%, 0% 93%, from(#44994e), to(#44994e));background-image:-moz-linear-gradient(0% 93% 90deg, #44994e, #44994e);}
-#part3 #success{-webkit-transform:rotate(-0.5deg);-moz-transform:rotate(-0.5deg);}
-#part3 #success span{padding:2px 5px 2px 6px;color:#fff;background-color:#008711;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;text-shadow:none;}
-#part3 #success span a{color:#fff;font-weight:bold;text-decoration:none;}
-#part3 #success span a:hover{color:#1b4508;}
-#part3 #error span{padding:2px 5px 2px 6px;color:#fff;background-color:#e72020;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;text-shadow:none;}
+#part2 #success{-webkit-transform:rotate(-0.5deg);-moz-transform:rotate(-0.5deg);}
+#part2 #success span{padding:2px 5px 2px 6px;color:#fff;background-color:#008711;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;text-shadow:none;}
+#part2 #success span a{color:#fff;font-weight:bold;text-decoration:none;}
+#part2 #success span a:hover{color:#1b4508;}
+#part2 #error span{padding:2px 5px 2px 6px;color:#fff;background-color:#e72020;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;text-shadow:none;}
 #part4{background-color:#efefe9;background-image:url(../images/bg.png);background-repeat:repeat;background-position:top left;}#part4 #part4content h2{font-size:26px;text-align:center;font-weight:bold;border-bottom:1px solid #c2c2bd;text-shadow:0 1px #ffffff;-moz-box-shadow:0px 1px 0px #ffffff,transparent 0 0 0,transparent 0 0 0,transparent 0 0 0,transparent 0 0 0;-webkit-box-shadow:0px 1px 0px #ffffff,transparent 0 0 0,transparent 0 0 0,transparent 0 0 0,transparent 0 0 0;box-shadow:0px 1px 0px #ffffff;box-shadow:0px 1px 0px #ffffff,transparent 0 0 0,transparent 0 0 0,transparent 0 0 0,transparent 0 0 0;}
 #part4 #part4content .feature h3{font-size:17px;font-weight:bold;line-height:22px;text-shadow:0 1px #ffffff;}
 #part4 #part4content .feature p{font-size:16px;text-shadow:0 1px #ffffff;}
